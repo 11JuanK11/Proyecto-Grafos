@@ -11,6 +11,34 @@ package grafos;
 public class Nodo {
     private Nodo Liga;
     private int Dato;
+
+    public Nodo(Nodo Liga, int Dato) {
+        this.Liga = Liga;
+        this.Dato = Dato;
+    }
+    
+    
+    public Nodo() {
+        Liga = null;
+        Dato = 0;
+    }
+
+    public Nodo getLiga() {
+        return Liga;
+    }
+
+    public void setLiga(Nodo Liga) {
+        this.Liga = Liga;
+    }
+
+    public int getDato() {
+        return Dato;
+    }
+
+    public void setDato(int Dato) {
+        this.Dato = Dato;
+    }
+    
     
     
 }
