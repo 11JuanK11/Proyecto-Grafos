@@ -4,17 +4,10 @@
  */
 package grafos;
 
-/**
- *
- * @author 57301
- */
 public class ProyectoGrafos {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
     }
     
 }
