@@ -1,19 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package grafos;
 
-/**
- *
- * @author 57301
- */
+import java.util.Scanner;
+
 public class ProyectoGrafos {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        Scanner Leer = new Scanner(System.in);
+        String Ver = "", Lad = "";
+        
+        System.out.println("Ingrese los vertices separadas por comas: ");
+        Ver = Leer.next();
+        System.out.println("Ingrese los lados separadas por comas: ");
+        Lad = Leer.next();
+        
+        String[] V = Ver.split(",");
+        String[] L = Lad.split(",");
+        
+        
+ 
+        int[][] M = new int[V.length][V.length];
+        
+        for(int i=0; i<L.length; i+=2){
+            M[Integer.parseInt(L[i])-1][Integer.parseInt(L[i+1])-1] = 1;
+            M[Integer.parseInt(L[i+1])-1][Integer.parseInt(L[i])-1] = 1;
+
+        }
+        
+        for (int j=0; j<M.length; j++){
+            for (int i = 0; i < M[0].length; i++) {
+                System.out.print(M[j][i]);
+            }
+            System.out.println("");
+        }
     }
-    
 }
