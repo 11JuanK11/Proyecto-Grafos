@@ -8,7 +8,7 @@ package grafos;
  *
  * @author 57301
  */
-public class Grafos {
+public class ProyectoGrafos {
 
     /**
      * @param args the command line arguments
