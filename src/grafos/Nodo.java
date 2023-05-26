@@ -9,7 +9,7 @@ package grafos;
  * @author 57301
  */
 public class Nodo {
-    private Nodo LigaI, LigaD;
+    private Nodo Liga;
     private int Dato;
     
     
