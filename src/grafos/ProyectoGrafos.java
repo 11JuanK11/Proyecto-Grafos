@@ -38,5 +38,10 @@ public class ProyectoGrafos {
             }
             System.out.println("");
         }
+        
+        Grafo G = new Grafo( V.length);
+        
+        G.Crear(M);
+        G.Mostrar();
     }
 }
