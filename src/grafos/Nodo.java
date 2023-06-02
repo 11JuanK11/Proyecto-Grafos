@@ -1,18 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafos;
 
-/**
- *
- * @author 57301
- */
 public class Nodo {
     private Nodo Liga;
-    private int Dato;
+    private String Dato;
 
-    public Nodo(Nodo Liga, int Dato) {
+    public Nodo(Nodo Liga, String Dato) {
         this.Liga = Liga;
         this.Dato = Dato;
     }
@@ -20,7 +13,7 @@ public class Nodo {
     
     public Nodo() {
         Liga = null;
-        Dato = 0;
+        Dato = "";
     }
 
     public Nodo getLiga() {
@@ -31,11 +24,11 @@ public class Nodo {
         this.Liga = Liga;
     }
 
-    public int getDato() {
+    public String getDato() {
         return Dato;
     }
 
-    public void setDato(int Dato) {
+    public void setDato(String Dato) {
         this.Dato = Dato;
     }
     

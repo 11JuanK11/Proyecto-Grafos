@@ -24,13 +24,13 @@ public class Grafo {
         this.Vect = Vect;
     }
 
-    public void Crear(int M[][]) {
+    public void Crear(int M[][], String V[]) {
         Nodo P=null;
         for (int i = 0; i < M.length; i++) {
             for (int j = 0; j < M[0].length; j++) {
                 if (M[i][j] != 0) {
                     Nodo X = new Nodo();
-                    X.setDato(j+1);
+                    X.setDato(V[j]);
                     if (Vect[i] != null) {
                         P = Vect[i];
                         while (P.getLiga() != null) {
