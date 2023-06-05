@@ -16,53 +16,9 @@ public class ProyectoGrafos {
         String[] V = Ver.split(",");
         String[] L = Lad.split(",");
 
-        int[][] M = new int[V.length][V.length];
-
-        //Para números
-//        for (int i = 0; i < L.length; i += 3) {
-//            M[Integer.parseInt(L[i]) - 1][Integer.parseInt(L[i + 1]) - 1] = Integer.parseInt(L[i + 2]);
-//            M[Integer.parseInt(L[i + 1]) - 1][Integer.parseInt(L[i]) - 1] = Integer.parseInt(L[i + 2]);
-//        }
-
-//        for (int j = 0; j < M.length; j++) {
-//            for (int i = 0; i < M[0].length; i++) {
-//                System.out.print(M[j][i]);
-//            }
-//            System.out.println("");
-//        }
-
-        //Para caracteres
-        for (int i = 0; i < L.length; i += 3) {
-            int F=0, C=0, j = 0;
-
-            while (j < V.length) {
-                if (V[j].equals(L[i])) {
-                    F = j;
-                }
-                j++;
-            }
-            j=0;
-            while (j < V.length) {
-                if (V[j].equals(L[i + 1])) {
-                    C = j;
-                }
-                j++;
-            }
-            
-            M[F][C] = Integer.parseInt(L[i + 2]);
-            M[C][F] = Integer.parseInt(L[i + 2]);
-        }
-        
-        for (int j = 0; j < M.length; j++) {
-            for (int i = 0; i < M[0].length; i++) {
-                System.out.print(M[j][i]);
-            }
-            System.out.println("");
-        }
-
         Grafo G = new Grafo(V.length);
-
-        G.Crear(M, V);
+        G.CrearMatrizAdy(V, L);
+        G.CrearListaAdy(G.getM(), V);
         G.Mostrar();
     }
 
