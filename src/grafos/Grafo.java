@@ -1,5 +1,8 @@
 package grafos;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 public class Grafo {
 
     public Nodo[] Vect;
@@ -60,13 +63,17 @@ public class Grafo {
         }
 
         //Mostrar sencilla matriz
-        for (int j = 0; j < M.length; j++) {
+        
+        setM(M);
+    }
+    
+    public void MostrarMatrizAdy(){
+        for(int j = 0; j < M.length; j++) {
             for (int i = 0; i < M[0].length; i++) {
                 System.out.print(M[j][i]);
             }
             System.out.println("");
         }
-         setM(M);
     }
 
     public void CrearListaAdy(int M[][], String V[]) {
@@ -90,17 +97,70 @@ public class Grafo {
         }
     }
 
-    public void Mostrar() {
+    public void MostrarListaAdy() {
         Nodo P = null;
 
         for (int i = 0; i < Vect.length; i++) {
             P = Vect[i];
             while (P != null) {
-                System.out.print(P.getDato() + " ");
+                System.out.print(P.getDato() + "-->");
                 P = P.getLiga();
             }
             System.out.println("");
         }
+    }
+    
+    public void Mostrar_Grafo(String V[]) {
+        int[][] Arbol = M;
+        String A = "";
+        int p = 0;
+        for (int i = 0; i < Arbol.length; i++) {
+            int j = 0;
+            while (j < Arbol[0].length) {
+                if (Arbol[i][j] != 0) {
+                    A += ( V[i] + "->" + V[j] + "\n");
+                }
+                j++;
+                
+            }
+        }
+        CrearArchivo(A);
+        CrearIMG();
+    }
+
+    private void CrearArchivo(String A) {
+        try {
+            FileWriter a = new FileWriter("ImagenGrafo.txt");
+            BufferedWriter escribir = new BufferedWriter(a);
+            escribir.write("digraph ImagenGrafo\n{\n");
+            escribir.write(A);
+            escribir.write("}");
+            escribir.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private void CrearIMG() {
+        try {
+            String dotPath = "./src/bin/dot.exe";
+            String fileInputPath = "ImagenGrafo.txt";
+            String fileOutputPath = "./src/grafos/grafico.jpg";
+
+            String tParam = "-Tjpg";
+            String tOParam = "-o";
+
+            String[] cmd = new String[5];
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileInputPath;
+            cmd[3] = tOParam;
+            cmd[4] = fileOutputPath;
+
+            Runtime rt = Runtime.getRuntime();
+
+            rt.exec(cmd);
+
+        } catch (Exception ex) {}
     }
 
 }

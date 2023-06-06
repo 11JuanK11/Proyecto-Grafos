@@ -19,7 +19,8 @@ public class ProyectoGrafos {
         Grafo G = new Grafo(V.length);
         G.CrearMatrizAdy(V, L);
         G.CrearListaAdy(G.getM(), V);
-        G.Mostrar();
+        G.MostrarListaAdy();
+        G.Mostrar_Grafo(V);
     }
 
 }
