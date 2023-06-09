@@ -48,7 +48,7 @@ public class ProyectoGrafos {
                 case 2:
                     System.out.println("Lista de Adyacencia");
                     G.CrearListaAdy(G.getM(), V);
-                    G.MostrarListaAdy();
+                    G.MostrarListaAdy(V);
                     break;
 
                 case 3:

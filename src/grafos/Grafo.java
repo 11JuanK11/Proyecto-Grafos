@@ -96,15 +96,25 @@ public class Grafo {
         }
     }
 
-    public void MostrarListaAdy() {
+    public void MostrarListaAdy(String[] V) {
         Nodo P = null;
 
         for (int i = 0; i < Vect.length; i++) {
             P = Vect[i];
+            int j = 0;
+            String S = "";
+            while (j < V.length) {
+                if (j == i) {
+                    S = V[j];
+                }
+                j++;
+            }
+            System.out.print("[" + S + "]" + "-->");
             while (P != null) {
                 System.out.print(P.getDato() + "-->");
                 P = P.getLiga();
             }
+            System.out.print("/");
             System.out.println("");
         }
     }
