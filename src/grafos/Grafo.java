@@ -158,17 +158,17 @@ public class Grafo {
         }
     }
     
-    public void MinDistance(int min){
+    public void MinDistance(int min, int inicio, int fin){
         int dm[][] = new int[M.length][M.length];
         ArrayList<Integer> vis = new ArrayList();
-        int i =0, k =0;
+        int i =0, k =0, d,d1;
         while(k < dm.length){
             for (int j = 0; j < M.length; j++) {
                 if(M[i][j] != 0 && !content(j, vis))
                     dm[j][k] = M[i][j] + dm[i][k];
             }
             vis.add(i);
-            int d = min;
+            d = min;
             for (int j = 0; j < M.length; j++) {
                 if(d > dm[j][k] && dm[j][k] != 0 && j != vis.get(k)){
                     d = dm[j][k];
@@ -186,9 +186,21 @@ public class Grafo {
                     dm[i][k+1] = d;
             }
             k++;
-            if(k == (M.length)-1)
-                System.out.println("Distancia minima: " + dm[k][k]);
         }
+        if(inicio == 0){
+            d = 0;
+            d1 = min;
+        }else{
+            d = min;
+            d1 = min;
+        }
+        for (int j = 0; j < M.length; j++) {
+            if(d > dm[inicio][j] && dm[inicio][j] != 0)
+                d = dm[inicio][j];
+            if(d1 > dm[fin][j] && dm[fin][j] != 0)
+                d1 = dm[fin][j];
+        }
+        System.out.println("Distancia minima:" + (d1 - d));
     }
     
     private boolean content(int j, ArrayList<Integer> vis){
