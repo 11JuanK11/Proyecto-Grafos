@@ -26,6 +26,7 @@ public class ProyectoGrafos {
 
         Grafo G = new Grafo(V.length);
         G.CrearMatrizAdy(V, L);
+        G.CrearListaAdy(G.getM(), V);
 
         do {
             System.out.println("");
@@ -47,7 +48,6 @@ public class ProyectoGrafos {
 
                 case 2:
                     System.out.println("Lista de Adyacencia");
-                    G.CrearListaAdy(G.getM(), V);
                     G.MostrarListaAdy(V);
                     break;
 
@@ -61,23 +61,28 @@ public class ProyectoGrafos {
                     break;
 
                 case 5:
-                    int Min = 0, inicio = 0, fin = 0;
+                    int Min = 0,
+                     inicio = 0,
+                     fin = 0;
                     boolean ban = true;
                     for (int i = 2; i < L.length; i += 3) {
                         Min += Integer.parseInt(L[i]);
                     }
-                    String in, fi;
+                    String in,
+                     fi;
                     System.out.println("Ingresa el vertice inicial");
                     in = Leer.next();
                     System.out.println("Ingresa el vertice final");
                     fi = Leer.next();
-                    for (int i = 0; i < V.length ; i++) {
-                        if(in.equalsIgnoreCase(V[i]))
+                    for (int i = 0; i < V.length; i++) {
+                        if (in.equalsIgnoreCase(V[i])) {
                             inicio = i;
-                        if(fi.equalsIgnoreCase(V[i]))
-                            fin = i;   
+                        }
+                        if (fi.equalsIgnoreCase(V[i])) {
+                            fin = i;
+                        }
                     }
-                    G.MinDistance(Min,inicio,fin);
+                    G.MinDistance(Min, inicio, fin);
                     break;
 
                 case 6:

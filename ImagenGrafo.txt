@@ -1,15 +1,6 @@
 graph ImagenGrafo
 {
 layout=neato;
-o--a
-o--b
-a--b
-a--c
-b--c
-b--d
-c--d
-c--f
-d--f
 1--2
 1--4
 2--3
