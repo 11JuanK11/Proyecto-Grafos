@@ -1,23 +1,13 @@
-digraph ImagenGrafo
+graph ImagenGrafo
 {
-Z->C
-Z->E
-Z->F
-A->B
-A->D
-B->A
-B->C
-C->Z
-C->B
-C->F
-D->A
-D->E
-D->G
-E->Z
-E->D
-E->F
-F->Z
-F->C
-F->E
-G->D
+layout=neato;
+o--a
+o--b
+a--b
+a--c
+b--c
+b--d
+c--d
+c--f
+d--f
 }

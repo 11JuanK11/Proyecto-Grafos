@@ -2,6 +2,7 @@ package grafos;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class Grafo {
 
@@ -115,10 +116,10 @@ public class Grafo {
         String A = "";
         int p = 0;
         for (int i = 0; i < Arbol.length; i++) {
-            int j = 0;
+            int j = i+1;
             while (j < Arbol[0].length) {
                 if (Arbol[i][j] != 0) {
-                    A += ( V[i] + "->" + V[j] + "\n");
+                    A += ( V[i] + "--" + V[j] + "\n");
                 }
                 j++;
                 
@@ -132,7 +133,7 @@ public class Grafo {
         try {
             FileWriter a = new FileWriter("ImagenGrafo.txt");
             BufferedWriter escribir = new BufferedWriter(a);
-            escribir.write("digraph ImagenGrafo\n{\n");
+            escribir.write("graph ImagenGrafo\n{\nlayout=neato;\n");
             escribir.write(A);
             escribir.write("}");
             escribir.close();
@@ -161,6 +162,57 @@ public class Grafo {
             rt.exec(cmd);
 
         } catch (Exception ex) {}
+        
+        
     }
+    
+    public void MinDistance(int min){
+        int dm[][] = new int[M.length][M.length];
+        ArrayList<Integer> vis = new ArrayList();
+        int i =0, k =0;
+        while(k < dm.length){
+            for (int j = 0; j < M.length; j++) {
+                if(M[i][j] != 0 && !content(j, vis))
+                    dm[j][k] = M[i][j] + dm[i][k];
+            }
+            vis.add(i);
+            int d = min;
+            for (int j = 0; j < M.length; j++) {
+                if(d > dm[j][k] && dm[j][k] != 0 && j != vis.get(k)){
+                    d = dm[j][k];
+                    i = j;
+                }
+            }
+            if(k == 0){
+                dm[i][k+1] = d;
+            }else{
+                for (int j = 0; j < k; j++) {
+                    if(d > dm[i][j] && dm[i][j] != 0 )
+                        d = dm[i][j];      
+                }
+                if (k < M.length-1) 
+                    dm[i][k+1] = d;
+                
+                
+            }
+            k++;
+            if(k == (M.length)-1)
+                System.out.println("Distancia minima: " + dm[k][k]);
+        }
+        
+        
+        
+    }
+    
+    private boolean content(int j, ArrayList<Integer> vis){
+        boolean ban = false;
+        for (Integer vi : vis) {
+            if( vi.intValue() == j)
+                ban = true;
+            
+        }
+        return ban;
+    }
+    
 
 }

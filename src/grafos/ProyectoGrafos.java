@@ -21,6 +21,7 @@ public class ProyectoGrafos {
         G.CrearListaAdy(G.getM(), V);
         G.MostrarListaAdy();
         G.Mostrar_Grafo(V);
+        G.MinDistance(40);
     }
 
 }
